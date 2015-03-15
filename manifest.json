@@ -1,0 +1,33 @@
+{
+  "name": "LBCAlerte",
+  "id": "lbcalerte",
+  "description": {
+    "en": "Alertes Leboncoin",
+    "fr": "Alertes Leboncoin"
+  },
+  "developer": {
+    "name": "lunarok",
+    "email": "cedric@wayang.fr",
+    "url": "http://www.wayang.fr"
+  },
+  "multi_instance": "false",
+  "arguments": {
+    "install": [
+      {
+        "name": "domain",
+        "ask": {
+          "en": "Choose a domain for LBCAlerte"
+        },
+        "example": "domain.org"
+      },
+      {
+        "name": "path",
+        "ask": {
+          "en": "Choose a path for LBCAlerte"
+        },
+        "example": "/lbcalerte",
+        "default": "/lbcalerte"
+      }
+    ]
+  }
+}

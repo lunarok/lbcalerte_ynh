@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Retrieve arguments
+domain=$1
+path=$2
+app=lbcalerte
+
+sudo yunohost app checkurl $domain$path -a $app
+if [[ ! $? -eq 0 ]]; then
+  exit 1
+fi
+
+# Copy of app for localhost installation
+final_path=/var/www/$path
+sudo mkdir -p $final_path
+sudo cp -a ../sources/* $final_path
+
+
+# Configure Nginx and reload
+sudo sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+sudo service nginx reload
